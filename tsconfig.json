@@ -9,7 +9,7 @@
     "resolveJsonModule": true
   },
   "include": [
-    "src",
+    "apps/src",
     "test"
   ],
   "exclude": [
