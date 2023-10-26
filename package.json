@@ -1,0 +1,27 @@
+{
+  "name": "fireblocks_demo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "npx ts-node apps/src/index.ts",
+    "test": "mocha --require ts-node/register test/*.ts"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@fireblocks/fireblocks-web3-provider": "^1.2.5",
+    "chai": "^4.3.10",
+    "dotenv": "^16.3.1",
+    "mocha": "^10.2.0",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.2.2",
+    "web3": "^1.10.0"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.3.9",
+    "@types/jest": "^29.5.6",
+    "@types/mocha": "^10.0.3",
+    "jest": "^29.7.0"
+  }
+}
