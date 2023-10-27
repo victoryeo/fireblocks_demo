@@ -14,7 +14,9 @@
     "@fireblocks/fireblocks-web3-provider": "^1.2.5",
     "chai": "^4.3.10",
     "dotenv": "^16.3.1",
+    "fs": "^0.0.1-security",
     "mocha": "^10.2.0",
+    "path": "^0.12.7",
     "ts-node": "^10.9.1",
     "typescript": "^5.2.2",
     "web3": "^1.10.0"
