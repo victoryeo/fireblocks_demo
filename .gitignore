@@ -2,3 +2,6 @@
 /node_modules
 .env
 fireblocks_secret.key
+/SmartContract/node_modules
+/SmartContract/artifacts
+/SmartContract/cache
