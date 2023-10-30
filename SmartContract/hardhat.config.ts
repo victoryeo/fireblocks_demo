@@ -1,7 +1,7 @@
 import "@fireblocks/hardhat-fireblocks";
 import { ApiBaseUrl } from "@fireblocks/fireblocks-web3-provider";
 import * as dotenv from "dotenv";
-//import "@nomiclabs/hardhat-waffle";
+import "@nomiclabs/hardhat-waffle";
 
 dotenv.config();
 
