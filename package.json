@@ -8,6 +8,7 @@
     "transact": "npx ts-node apps/src/transaction.ts",
     "vault": "npx ts-node apps/src/vault.ts",
     "extwallet": "npx ts-node apps/src/extWallet.ts",
+    "rawmsg": "npx ts-node apps/src/rawMsg.ts",
     "test": "mocha --require ts-node/register test/*.ts"
   },
   "author": "",
