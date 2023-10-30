@@ -7,6 +7,7 @@
     "start": "npx ts-node apps/src/index.ts",
     "transact": "npx ts-node apps/src/transaction.ts",
     "vault": "npx ts-node apps/src/vault.ts",
+    "extwallet": "npx ts-node apps/src/extWallet.ts",
     "test": "mocha --require ts-node/register test/*.ts"
   },
   "author": "",
