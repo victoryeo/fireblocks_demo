@@ -17,6 +17,7 @@
     "@fireblocks/hardhat-fireblocks": "^1.2.2",
     "@nomiclabs/hardhat-ethers": "^2.2.3",
     "@nomiclabs/hardhat-waffle": "^2.0.6",
+    "@openzeppelin/contracts": "^5.0.0",
     "dotenv": "^16.3.1"
   }
 }
