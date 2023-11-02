@@ -33,6 +33,11 @@ const fireblocks = new FireblocksSDK(privateKey, apiKey, baseUrl);
   vaultAccounts = await fireblocks.getVaultAccountsWithPageInfo({});
   console.log(inspect(vaultAccounts, false, null, true));
 
+  let assetId = "ETH_TEST3";
+  let vaultWallet = await fireblocks.createVaultAsset(vaultCreation.id, assetId);
+  const result = [{ "Vault Name": vaultCreation.name, "Vault ID": vaultCreation.id, "Asset ID": assetId, "Wallet Address": vaultWallet.address }];
+  console.log(JSON.stringify(result, null, 2));
+
 })().catch((e) => {
   console.error(`Failed: ${e}`);
 })
