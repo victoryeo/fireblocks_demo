@@ -10,6 +10,7 @@
     "extwallet": "npx ts-node apps/src/extWallet.ts",
     "rawmsg": "npx ts-node apps/src/rawMsg.ts",
     "typemsg": "npx ts-node apps/src/typeMsg.ts",
+    "listnft": "npx ts-node apps/src/listNft.ts",
     "test": "mocha --require ts-node/register test/*.ts"
   },
   "author": "",
