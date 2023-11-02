@@ -7,8 +7,11 @@ import "@openzeppelin/contracts/access/Ownable.sol";
 
 contract SpaceBunnies is ERC721, Ownable {
     uint256 private _tokenIdCounter;
+    string private _baseTokenURI;
 
-    constructor(string memory name, string memory symbol, address initialOwner) Ownable(initialOwner) ERC721(name, symbol) {}
+    constructor(string memory name, string memory symbol, address initialOwner) Ownable(initialOwner) ERC721(name, symbol) {
+        _baseTokenURI = "ipfs://spacebunnies.io/api/token/";
+    }
 
     function safeMint(address to) public onlyOwner {
         uint256 tokenId = _tokenIdCounter;
@@ -25,5 +28,9 @@ contract SpaceBunnies is ERC721, Ownable {
         returns (string memory)
     {
         return super.tokenURI(tokenId);
+    }
+
+    function _baseURI() internal view override returns (string memory) {
+        return _baseTokenURI;
     }
 }
