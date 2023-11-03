@@ -20,7 +20,7 @@ const eip1193Provider = new FireblocksWeb3Provider({
 })
 
 // Import the Goerli USDC ABI
-const ABI = require("../PROXY.json");
+const ABI = require("../USDC_GOERLI_ABI.json");
 // Goerli USDC Contract Address
 const CONTRACT_ADDRESS = "0x07865c6E87B9F70255377e024ace6630C1Eaa37F";
 
