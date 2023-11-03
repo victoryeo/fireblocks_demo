@@ -15,9 +15,7 @@ import {
   ChakraProvider
 } from "@chakra-ui/react";
 import { ExternalLinkIcon } from "@chakra-ui/icons";
-import {
-  FireblocksSDK,
-} from "fireblocks-sdk";
+import { FireblocksSDK }  from "fireblocks-sdk";
 
 const theme = extendTheme({
   components: {
@@ -38,6 +36,7 @@ const theme = extendTheme({
 
 function Fireblocks({keyData}) {
   const [vaultId, setVaultId] = useState("");
+  const { isOpen, onOpen, onClose } = useDisclosure();
 
   useEffect(() => {
     const fetchVault = async () => {
