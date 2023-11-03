@@ -1,1 +1,1 @@
-demo code using fireblocks API and sandbox
+test codes using fireblocks API and sandbox
