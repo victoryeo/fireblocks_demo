@@ -18,15 +18,15 @@ const baseUrl = "https://sandbox-api.fireblocks.io";
 const fireblocks = new FireblocksSDK(privateKey, apiKey, baseUrl);
 
 (async () => {
-  const name: string = "Counter-Party Wallet #2";
+  const name: string = "Counter-Party Wallet #4";
   const externalWallet = await fireblocks.createExternalWallet(name);
   console.log(JSON.stringify(externalWallet, null, 2));
 
   const walletContainerId = externalWallet.id;
-  const assetId = "USDC_T";
-  const address = "0xEA6A3E367e96521fD9E8296425a44EFa6aee82da";
-  const tag = "0x12345678";
-  const externalWalletAsset = await fireblocks.createExternalWalletAsset(walletContainerId, assetId, address, tag);
+  const assetId = "USDC";
+  const address = "0x07865c6E87B9F70255377e024ace6630C1Eaa37F";
+  //const tag = "0x12345678";
+  const externalWalletAsset = await fireblocks.createExternalWalletAsset(walletContainerId, assetId, address);
   console.log(JSON.stringify(externalWalletAsset, null, 2));
 
 })().catch((e) => {
