@@ -96,10 +96,10 @@ const Page: NextPageWithLayout = (props) => {
                     <CardBody style={{ paddingBottom: 10, paddingTop: 10, marginLeft:10 }}>
                     <p>
                       This dapp is using Fireblocks {" "}
-                              <a href="https://developers.fireblocks.com/docs/sandbox-quickstart">
+                        <a href="https://developers.fireblocks.com/docs/sandbox-quickstart">
                         (SDK and Sandbox)
                       </a>{" "}
-                      for interfacing to web3 and for custody. The demo will mint an NFT to Fireblocks wallet address.
+                      for interfacing to web3 and for custody. The demo will mint an NFT to Fireblocks vault wallet address.
                     </p>
                     If you don't have a Fireblocks vault, you can create one.
                     <Fireblocks keyData={keyData}/>

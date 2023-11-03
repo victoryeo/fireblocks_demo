@@ -25,7 +25,7 @@ const fireblocks = new FireblocksSDK(privateKey, apiKey, baseUrl);
 
   // Create vault account
   console.log("QuickStart_Vault1");
-  const vaultCreation = await fireblocks.createVaultAccount("QuickStart_Vault");
+  /*const vaultCreation = await fireblocks.createVaultAccount("QuickStart_Vault");
   console.log(inspect(vaultCreation, false, null, true));
   console.log("QuickStart_Vault2");
   
@@ -36,7 +36,7 @@ const fireblocks = new FireblocksSDK(privateKey, apiKey, baseUrl);
   let assetId = "ETH_TEST3";
   let vaultWallet = await fireblocks.createVaultAsset(vaultCreation.id, assetId);
   const result = [{ "Vault Name": vaultCreation.name, "Vault ID": vaultCreation.id, "Asset ID": assetId, "Wallet Address": vaultWallet.address }];
-  console.log(JSON.stringify(result, null, 2));
+  console.log(JSON.stringify(result, null, 2));*/
 
 })().catch((e) => {
   console.error(`Failed: ${e}`);

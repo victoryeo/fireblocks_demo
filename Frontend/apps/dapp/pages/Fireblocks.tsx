@@ -35,7 +35,7 @@ const theme = extendTheme({
 });
 
 function Fireblocks({keyData}) {
-  const [vaultId, setVaultId] = useState("");
+  const [vaultId, setVaultId] = useState("0");
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   useEffect(() => {
@@ -50,8 +50,8 @@ function Fireblocks({keyData}) {
       const apiKey = process.env.NX_FIREBLOCKS_API_KEY;
       // Choose the right api url for your workspace type 
       const baseUrl = "https://sandbox-api.fireblocks.io";
-      const fireblocks = new FireblocksSDK(keyData.keyData, apiKey, baseUrl);
-/*
+/*      const fireblocks = new FireblocksSDK(keyData.keyData, apiKey, baseUrl);
+
       let vaultAccounts = await fireblocks.getVaultAccountsWithPageInfo({});
       console.log(vaultAccounts)
       console.log("vault connected")
@@ -64,15 +64,21 @@ function Fireblocks({keyData}) {
   return (
     <div>
       <ChakraProvider theme={theme}>
-        {vaultId ? (
+        <Center>
           <Button border="2px" colorScheme="purple" onClick={onOpen} margin={4}>
             Create Vault Account
           </Button>
-        ) : (
-          <Center>
-            vault Id is {vaultId}
-          </Center>
-        )}
+        </Center>
+        <Center>
+          <p />
+          Vault Id is {vaultId}
+
+        </Center>
+        <Center>
+          <Button border="2px" colorScheme="blue" onClick={onOpen} margin={4}>
+            Mint NFT
+          </Button>
+        </Center>
       </ChakraProvider>
     </div>
   );
