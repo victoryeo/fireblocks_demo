@@ -6,6 +6,10 @@ import { NextPageWithLayout } from './_app';
 import { Form } from 'antd';
 import { EyeFilled, EyeInvisibleFilled } from '@ant-design/icons';
 import { Center, Card, Image, CardBody, Container } from "@chakra-ui/react";
+import Fireblocks from './Fireblocks';
+// Fetching data from the JSON file
+import fsPromises from 'fs/promises';
+import path from 'path';
 
 interface ILogin {
   username: string;
@@ -17,7 +21,7 @@ interface IUser {
   password: string;
 }
 
-const Page: NextPageWithLayout = () => {
+const Page: NextPageWithLayout = (props) => {
   const [user, setUser] = useState<ILogin | undefined>(undefined);
   const [userErr, setUserErr] = useState('');
   const [passwordErr, setpasswordErr] = useState('');
@@ -25,9 +29,10 @@ const Page: NextPageWithLayout = () => {
   const [atLogin, setAtLogin] = useState(true);
   const [passwordType, setPasswordType] = useState('password');
   const [provedAccessBirthday, setProvedAccessBirthday] = useState(false);
+  const keyData = props;
 
   useEffect(() => {
-    //console.log(process.env.NX_VERIFICATION_SERVER_LOCAL_HOST_URL)
+    //console.log(keyData)
   }, []);
 
   useEffect(() => {
@@ -97,6 +102,7 @@ const Page: NextPageWithLayout = () => {
                       for interfacing to web3 and for custody. The demo will mint an NFT to Fireblocks wallet address.
                     </p>
                     If you don't have a Fireblocks vault, you can create one.
+                    <Fireblocks keyData={keyData}/>
                     </CardBody>
                     </Card>
                     </Container>
@@ -116,3 +122,13 @@ const Page: NextPageWithLayout = () => {
 //   return <AppLayout>{page}</AppLayout>;
 // };
 export default Page;
+
+export async function getStaticProps() {
+  const filePath = path.join(process.cwd(), 'fireblocks_secret.key');
+  const keyData = await fsPromises.readFile(filePath, 'utf-8');
+  //console.log(keyData)
+
+  return {
+    props: { keyData }
+  }
+}
