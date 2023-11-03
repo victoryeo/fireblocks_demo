@@ -1,0 +1,27 @@
+/*
+ * Replace this with your own classes
+ *
+ * e.g.
+ * .container {
+ * }
+*/
+
+.connectbuttonStyle {
+  background-color:#00aa23;
+  display: flex;
+  border: 1px solid #595252;
+  padding: 10px;
+  justify-content: center;
+  flex-direction: column;
+  margin-bottom: 4px;
+}
+
+.disconnectbuttonStyle {
+  background-color:#ff0a23;
+  display: flex;
+  border: 1px solid #595252;
+  padding: 10px;
+  justify-content: center;
+  flex-direction: row;
+  margin-bottom: 4px;
+}
