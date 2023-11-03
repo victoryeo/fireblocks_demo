@@ -50,8 +50,11 @@ app.post(apiPath.createVault, async (req, res) => {
   let vaultAccounts = await fireblocks.getVaultAccountsWithPageInfo({});
   console.log(inspect(vaultAccounts, false, null, true));
 
+  const vaultCreation = await fireblocks.createVaultAccount("Demo_Vault" + Number(vaultAccounts.accounts[0].id)+1);
+  console.log(inspect(vaultCreation, false, null, true));  
+
   return res
     .status(200)
     .set("Content-Type", "application/json")
-    .send(vaultAccounts.accounts[0]);
+    .send(vaultCreation);
 })
