@@ -48,11 +48,11 @@ function Fireblocks({keyData}) {
       console.log(privateKey)
 
       console.log(keyData.keyData)
-      /*const apiKey = process.env.NX_FIREBLOCKS_API_KEY;
+      const apiKey = process.env.NX_FIREBLOCKS_API_KEY;
       // Choose the right api url for your workspace type 
       const baseUrl = "https://sandbox-api.fireblocks.io";
-      const fireblocks = new FireblocksSDK(privateKey, apiKey, baseUrl);
-
+      const fireblocks = new FireblocksSDK(keyData.keyData, apiKey, baseUrl);
+/*
       let vaultAccounts = await fireblocks.getVaultAccountsWithPageInfo({});
       console.log(vaultAccounts)
       console.log("vault connected")
