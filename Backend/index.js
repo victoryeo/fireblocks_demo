@@ -21,6 +21,7 @@ const apiKey = process.env.FIREBLOCKS_API_KEY ?? '';
 const baseUrl = "https://sandbox-api.fireblocks.io";
 const fireblocks = new FireblocksSDK(privateKey, apiKey, baseUrl);
 
+// Create a fireblocks provider instance
 const eip1193Provider = new FireblocksWeb3Provider({
   apiBaseUrl: baseUrl, // If using a sandbox workspace
   privateKey: process.env.FIREBLOCKS_API_PRIVATE_KEY_PATH ?? '',
