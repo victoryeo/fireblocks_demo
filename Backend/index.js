@@ -81,15 +81,18 @@ app.post(apiPath.mintNFT, async (req, res) => {
   const myAddr = await web3.eth.getAccounts()
   console.log("myAddr", myAddr)
   console.log("nftAddress", nftAddress.nftAddress)
-  const contract = new web3.eth.Contract(ABI, nftAddress)
-  /*
-  const nftContract = await ethers.getContractAt("SpaceBunnies", nftAddress);
+  const nftContract = new web3.eth.Contract(ABI, nftAddress.nftAddress)
+  //console.log(nftContract)
 
-  const tx = await nftContract.safeMint(signerAddress);
-  const resu = await tx.wait()
-  //console.log(resu)
-  const nftInx = Number(resu.events[0].args[2])
-  console.log("A new NFT index ", nftInx, "has been minted");
+  const txHash = await nftContract.methods.safeMint(myAddr[0]).send(
+    {from: myAddr[0], gas: 1000000});
+  console.log(txHash)
+  
+  const txReceipt = await web3.eth.getTransactionReceipt(txHash.transactionHash);
+  console.log(txReceipt)
+  /*
+  const nftInx = Number(resu.events[0].args[2]);
+  console.log("A new NFT index ", nftInx, "has been minted")
   console.log("tokenURI:", await nftContract.tokenURI(nftInx)) */
 
   return res
