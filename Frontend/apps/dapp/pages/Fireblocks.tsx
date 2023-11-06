@@ -17,6 +17,9 @@ import {
 import { ExternalLinkIcon } from "@chakra-ui/icons";
 import { FireblocksSDK }  from "fireblocks-sdk";
 
+const linkFireblocksSandbox =
+  "https://developers.fireblocks.com/docs/sandbox-quickstart";
+
 const theme = extendTheme({
   components: {
     Modal: {
@@ -61,12 +64,20 @@ function Fireblocks({keyData}) {
     fetchVault().catch(console.error);
   }, []);
 
+  const onCreateVault = async () => {
+    console.log("create vault")
+  }
+
+  const onMintNft = async () => {
+    console.log("mint Nft")
+  }
+
   return (
     <div>
       <ChakraProvider theme={theme}>
         <Center>
           <Button border="2px" colorScheme="purple" onClick={onOpen} margin={4}>
-            Create Vault Account
+            Open Vault 
           </Button>
         </Center>
         <Center>
@@ -74,11 +85,46 @@ function Fireblocks({keyData}) {
           Vault Id is {vaultId}
 
         </Center>
-        <Center>
-          <Button border="2px" colorScheme="blue" onClick={onOpen} margin={4}>
-            Mint NFT
-          </Button>
-        </Center>
+
+        {vaultId && (
+          <Modal isOpen={isOpen} onClose={onClose} isCentered>
+            <ModalOverlay />
+            <ModalContent>
+              <ModalHeader color="white">
+                Click this {" "}
+                <a
+                  href={linkFireblocksSandbox}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Fireblocks Sandbox link
+                </a>{" "}
+                to learn more
+              </ModalHeader>
+              <ModalCloseButton />
+              <ModalBody textAlign={"center"} fontSize={"12px"}>
+                <Button border="2px" colorScheme="blue" onClick={onCreateVault} margin={4}>
+                  Create Vault Account
+                </Button>
+                <Center>
+                  <p />
+                  Vault Id is {vaultId}
+                </Center>
+
+              </ModalBody>
+
+              <Center>
+                <ModalFooter>
+                  <Button border="2px" colorScheme="blue" onClick={onMintNft} margin={4}>
+                    Mint NFT
+                  </Button>
+
+                </ModalFooter>
+              </Center>
+            </ModalContent>
+          </Modal>
+        )}
+    
       </ChakraProvider>
     </div>
   );
