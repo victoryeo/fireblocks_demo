@@ -9,7 +9,13 @@ async function main() {
   console.log("signerAddress", signerAddress)
   const nftContract = await hre.ethers.getContractAt("SpaceBunnies", collectionAddress);
 
-  const tx = await nftContract.safeMint(signerAddress);
+  let overrides = {
+    // The maximum units of gas for the transaction to use
+    gasLimit: 230000,
+    gasPrice: hre.ethers.utils.parseUnits("10", "gwei"),
+  };
+
+  const tx = await nftContract.safeMint(signerAddress, overrides);
   const resu = await tx.wait()
   //console.log(resu)
   const nftInx = Number(resu.events[0].args[2])
