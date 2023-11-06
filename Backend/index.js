@@ -11,7 +11,7 @@ const nftAddress = require("./config/nftAddress");
 require("dotenv").config();
 
 const app = express();
-const port = 8090;
+const port = 9090;
 
 console.log(process.env.FIREBLOCKS_API_PRIVATE_KEY_PATH)
 const privateKey = fs.readFileSync(
@@ -41,7 +41,7 @@ app.use(
 app.get("/", (req, res) => {
   res.send(
     `Welcome to your backend Fireblocks SDK server! There are ${Object.keys(apiPath).length
-    } routes available: ${Object.values(apiPath).join(" and ")}.`
+    } routes available: ${Object.values(apiPath).join(" and ")}.\n`
   );
 });
 
