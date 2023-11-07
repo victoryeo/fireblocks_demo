@@ -85,6 +85,7 @@ app.post(apiPath.mintNFT, async (req, res) => {
   const nftContract = new web3.eth.Contract(ABI, nftAddress.nftAddress)
   //console.log(nftContract)
 
+  try {
   const txHash = await nftContract.methods.safeMint(myAddr[0]).send(
     {from: myAddr[0], gas: 1000000});
   console.log(txHash)
@@ -100,5 +101,10 @@ app.post(apiPath.mintNFT, async (req, res) => {
   return res
     .status(200)
     .set("Content-Type", "application/json")
-    .send(nftAddress);
+    .send(JSON.stringify({ 
+      nftAddress: nftAddress.nftAddress, nftInx: nftInx
+    }));
+  } catch (err) {
+    console.error(err)
+  }
 })
