@@ -11,7 +11,7 @@ async function main() {
   console.log(signer[0].address)
 
   const factory2 = await hre.ethers.getContractFactory("SpaceBunnies");
-  const contract2 = await factory2.deploy("T_NAME", "T_SYMBOL", signer[0].address);
+  const contract2 = await factory2.deploy("N_name", "N_symbol", signer[0].address);
 
   await contract2.deployed();
   console.log("NFT contract deployed to:", contract2.address);

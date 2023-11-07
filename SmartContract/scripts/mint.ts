@@ -2,7 +2,8 @@ import hre from "hardhat";
 
 async function main() {
   // on goerli testnet
-  const collectionAddress = "0x55C9775DAb2325bb69B279cABf6702cF9fF2789b";
+  //const collectionAddress = "0x55C9775DAb2325bb69B279cABf6702cF9fF2789b";
+  const collectionAddress = "0x4A9a39C9a9403C9a5FFD65331f29DFf693813AB5";
 
   const signer: any[] = await hre.ethers.getSigners()
   const signerAddress = await signer[0].getAddress()
