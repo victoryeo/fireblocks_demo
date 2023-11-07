@@ -62,12 +62,21 @@ function Fireblocks({keyData}) {
       /* Fireblocks SDK is not working in the frontend, 
         so we are using the backend to access the Fireblocks SDK */
 
-/*      const fireblocks = new FireblocksSDK(keyData.keyData, apiKey, baseUrl);
+      /* const fireblocks = new FireblocksSDK(keyData.keyData, apiKey, baseUrl);
 
       let vaultAccounts = await fireblocks.getVaultAccountsWithPageInfo({});
       console.log(vaultAccounts)
       console.log("vault connected")
-      setVaultId(vaultAccounts.accounts[0]);*/
+      setVaultId(vaultAccounts.accounts[0]); */
+      
+      const srcRpc = "http://localhost:9090/api/getVault";
+      const requestOptions = {
+        method: 'GET',
+      };
+      let receipt = await fetch(`${srcRpc}`, requestOptions);
+      let jsonData = await receipt.json();
+      console.log(`txn receipt`, jsonData);
+      setVaultId(jsonData?.id); 
     }
 
     fetchVault().catch(console.error);
