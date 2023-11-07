@@ -53,12 +53,24 @@ const server = app.listen(port, () => {
 const apiPath = {
   helloworld: "/api/helloworld",
   createVault: "/api/createVault",
+  getVault: "/api/getVault",
   mintNFT: "/api/mintNFT",
 };
 
 app.get(apiPath.helloworld, (req, res) => {
   return res.status(200).set("Content-Type", "application/json").send("helloworld\n");
 });
+
+app.get(apiPath.getVault, async (req, res) => {
+  // Print vaults before creation
+  let vaultAccounts = await fireblocks.getVaultAccountsWithPageInfo({});
+  console.log(inspect(vaultAccounts, false, null, true));
+
+  return res
+    .status(200)
+    .set("Content-Type", "application/json")
+    .send(vaultAccounts.accounts[0]);
+})
 
 app.post(apiPath.createVault, async (req, res) => {
   // Print vaults before creation
