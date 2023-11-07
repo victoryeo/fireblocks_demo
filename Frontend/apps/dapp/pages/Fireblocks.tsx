@@ -41,6 +41,10 @@ const theme = extendTheme({
 function Fireblocks({keyData}) {
   const [vaultId, setVaultId] = useState("0");
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const [isHandlingMinting, setIsHandlingMinting] = useState(false);
+  const [isNftAddress, setisNftAddress] = useState(false);
+  const [nftAddress, setNftAddress] = useState("");
+  const [nftIndex, setNftIndex] = useState(0);
 
   useEffect(() => {
     const fetchVault = async () => {
@@ -80,6 +84,8 @@ function Fireblocks({keyData}) {
 
   const onMintNft = async () => {
     console.log("mint Nft")
+    setIsHandlingMinting(true);
+    setisNftAddress(false);
     const srcRpc = "http://localhost:9090/api/mintNft";
     const requestOptions = {
       method: 'POST',
@@ -88,6 +94,10 @@ function Fireblocks({keyData}) {
     let receipt = await fetch(`${srcRpc}`, requestOptions);
     let jsonData = await receipt.json();
     console.log(`txn receipt`, jsonData);
+    setIsHandlingMinting(false);
+    setisNftAddress(true);
+    setNftAddress(jsonData.nftAddress)
+    setNftIndex(jsonData.nftIndex)
   }
 
   return (
@@ -130,15 +140,25 @@ function Fireblocks({keyData}) {
                     <Text fontSize='lg'>Vault Id is {vaultId}</Text>
                   </div>
                 </Center>
-
+                <Button border="2px" colorScheme="blue" onClick={onMintNft} margin={4}>
+                  Mint NFT
+                </Button>
               </ModalBody>
 
               <Center>
                 <ModalFooter>
-                  <Button border="2px" colorScheme="blue" onClick={onMintNft} margin={4}>
-                    Mint NFT
-                  </Button>
-
+                  <Center marginBottom={1}>
+                  {isHandlingMinting && (
+                    <div>
+                      <p>Minting...</p>
+                      <Spinner size={"xl"} colorScheme="purple" my={2} />
+                    </div>
+                  )}
+                  
+                  {isNftAddress && (
+                      <Text fontSize='lg'>Nft is minted at address {nftAddress}</Text>
+                  )}
+                  </Center>
                 </ModalFooter>
               </Center>
             </ModalContent>
