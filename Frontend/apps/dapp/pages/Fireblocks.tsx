@@ -58,6 +58,10 @@ function Fireblocks({keyData}) {
       const apiKey = process.env.NX_FIREBLOCKS_API_KEY;
       // Choose the right api url for your workspace type 
       const baseUrl = "https://sandbox-api.fireblocks.io";
+
+      /* Fireblocks SDK is not working in the frontend, 
+        so we are using the backend to access the Fireblocks SDK */
+
 /*      const fireblocks = new FireblocksSDK(keyData.keyData, apiKey, baseUrl);
 
       let vaultAccounts = await fireblocks.getVaultAccountsWithPageInfo({});
