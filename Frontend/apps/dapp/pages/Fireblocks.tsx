@@ -12,7 +12,8 @@ import {
   Spinner,
   Center,
   extendTheme,
-  ChakraProvider
+  ChakraProvider,
+  Text
 } from "@chakra-ui/react";
 import { ExternalLinkIcon } from "@chakra-ui/icons";
 import { FireblocksSDK }  from "fireblocks-sdk";
@@ -66,6 +67,15 @@ function Fireblocks({keyData}) {
 
   const onCreateVault = async () => {
     console.log("create vault")
+    const srcRpc = "http://localhost:9090/api/createVault";
+    const requestOptions = {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json'},
+    };
+    let receipt = await fetch(`${srcRpc}`, requestOptions);
+    let jsonData = await receipt.json();
+    console.log(`txn receipt`, jsonData);
+    setVaultId(jsonData.id);
   }
 
   const onMintNft = async () => {
@@ -82,8 +92,8 @@ function Fireblocks({keyData}) {
         </Center>
         <Center>
           <p />
-          Vault Id is {vaultId}
-
+          <Text fontSize='lg'>Vault Id is {vaultId}</Text>
+          
         </Center>
 
         {vaultId && (
@@ -107,8 +117,10 @@ function Fireblocks({keyData}) {
                   Create Vault Account
                 </Button>
                 <Center>
-                  <p />
-                  Vault Id is {vaultId}
+                  <div>
+                    <p />
+                    <Text fontSize='lg'>Vault Id is {vaultId}</Text>
+                  </div>
                 </Center>
 
               </ModalBody>
