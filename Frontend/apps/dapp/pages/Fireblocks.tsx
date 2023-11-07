@@ -77,7 +77,7 @@ function Fireblocks({keyData}) {
       <ChakraProvider theme={theme}>
         <Center>
           <Button border="2px" colorScheme="purple" onClick={onOpen} margin={4}>
-            Open Vault 
+            Access Vault 
           </Button>
         </Center>
         <Center>
