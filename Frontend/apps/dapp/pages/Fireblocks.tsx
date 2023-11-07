@@ -80,6 +80,14 @@ function Fireblocks({keyData}) {
 
   const onMintNft = async () => {
     console.log("mint Nft")
+    const srcRpc = "http://localhost:9090/api/mintNft";
+    const requestOptions = {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+    };
+    let receipt = await fetch(`${srcRpc}`, requestOptions);
+    let jsonData = await receipt.json();
+    console.log(`txn receipt`, jsonData);
   }
 
   return (
