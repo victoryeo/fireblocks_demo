@@ -97,7 +97,7 @@ function Fireblocks({keyData}) {
     setIsHandlingMinting(false);
     setisNftAddress(true);
     setNftAddress(jsonData.nftAddress)
-    setNftIndex(jsonData.nftIndex)
+    setNftIndex(jsonData.nftInx)
   }
 
   return (
@@ -156,7 +156,11 @@ function Fireblocks({keyData}) {
                   )}
                   
                   {isNftAddress && (
-                      <Text fontSize='lg'>Nft is minted at address {nftAddress}</Text>
+                      <Text fontSize='lg'>
+                        NFT is minted at contract address <i>{nftAddress}</i>
+                        <br/>
+                        NFT token ID minted is <i>{nftIndex}</i>
+                      </Text>
                   )}
                   </Center>
                 </ModalFooter>
