@@ -123,7 +123,7 @@ function Fireblocks({keyData}) {
         </Center>
         <Center>
           <p />
-          <Text fontSize='lg'>Current Vault Id is {vaultId}</Text>
+          <Text fontSize='lg'>Current Account Id is {vaultId}</Text>
           
         </Center>
 
@@ -150,7 +150,7 @@ function Fireblocks({keyData}) {
                 <Center>
                   <div>
                     <p />
-                    <Text fontSize='lg'>Current Vault Id is {vaultId}</Text>
+                    <Text fontSize='lg'>Current Account Id is {vaultId}</Text>
                   </div>
                 </Center>
                 <Button border="2px" colorScheme="blue" onClick={onMintNft} margin={4}>
