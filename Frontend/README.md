@@ -1,4 +1,4 @@
-# fireblocks demo App
+# Fireblocks Demo App
 
 ## Legagy Dependency
 ### find the dependency
