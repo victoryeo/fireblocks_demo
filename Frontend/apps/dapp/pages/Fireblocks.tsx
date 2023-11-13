@@ -48,7 +48,7 @@ function Fireblocks({keyData}) {
 
   useEffect(() => {
     const fetchVault = async () => {
-      console.log(process.env.NX_FIREBLOCKS_API_KEY)
+      /*console.log(process.env.NX_FIREBLOCKS_API_KEY)
       console.log(process.env.NX_WALLET_CONNECT_ID)
       
       const privateKey = process.env.NX_FIREBLOCKS_API_PRIVATE_KEY_PATH
@@ -57,7 +57,7 @@ function Fireblocks({keyData}) {
       console.log(keyData.keyData)
       const apiKey = process.env.NX_FIREBLOCKS_API_KEY;
       // Choose the right api url for your workspace type 
-      const baseUrl = "https://sandbox-api.fireblocks.io";
+      const baseUrl = "https://sandbox-api.fireblocks.io"; */
 
       /* Fireblocks SDK is not working in the frontend, 
         so we are using the backend to access the Fireblocks SDK */

@@ -123,7 +123,7 @@ const Page: NextPageWithLayout = (props) => {
 // };
 export default Page;
 
-export async function getStaticProps() {
+/*export async function getStaticProps() {
   const filePath = path.join(process.cwd(), 'fireblocks_secret.key');
   const keyData = await fsPromises.readFile(filePath, 'utf-8');
   //console.log(keyData)
@@ -131,4 +131,4 @@ export async function getStaticProps() {
   return {
     props: { keyData }
   }
-}
+}*/
