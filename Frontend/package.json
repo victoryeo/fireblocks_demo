@@ -4,9 +4,8 @@
   "license": "MIT",
   "scripts": {
     "start": "nx serve dapp",
-    "build": "yarn codegen && nx build dapp",
+    "build": "nx build dapp",
     "test": "nx test dapp",
-    "codegen": "yarn graphql-codegen --config codegen-graph.yml && yarn graphql-codegen --config codegen-hasura.yml",
     "generate-yaml": "node generate-yaml.js"
   },
   "private": true,
