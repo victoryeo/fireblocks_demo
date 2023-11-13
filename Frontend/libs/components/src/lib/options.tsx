@@ -1,7 +1,6 @@
 import Link from 'next/link';
 import router from 'next/router';
 import { useState, useEffect } from 'react';
-import { CustomConnectButton } from "./CustomeConnectButton";
 
 export const Options = () => {
   const [isLogin, setLogin] = useState<boolean>(false);
