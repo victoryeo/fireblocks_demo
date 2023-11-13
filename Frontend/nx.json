@@ -1,6 +1,6 @@
 {
   "$schema": "./node_modules/nx/schemas/nx-schema.json",
-  "npmScope": "did_demo",
+  "npmScope": "fireblocks_demo",
   "tasksRunnerOptions": {
     "default": {
       "runner": "@nrwl/nx-cloud",
