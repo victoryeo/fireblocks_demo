@@ -34,7 +34,7 @@ export default function WalletButton() {
 
   async function handleDisconnect() {
     setAddress('');
-    setBalance(0);
+    setBalance(BigInt(0));
     setIsConnected(false)
   }
 
