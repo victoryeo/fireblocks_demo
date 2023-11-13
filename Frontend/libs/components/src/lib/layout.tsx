@@ -7,14 +7,7 @@ import Typography from '@mui/material/Typography';
 import { useEffect, useState } from 'react';
 import { AppModal } from './modal';
 import { Link } from '@mui/material';
-import { createPublicClient, http, Client, PublicClient } from "viem";
-import { polygonMumbai } from "viem/chains";
-import {
-  getAccount,
-  readContract,
-  writeContract,
-  waitForTransaction,
-} from "@wagmi/core";
+
 import {
   //Box,
   Container,
@@ -30,7 +23,6 @@ import {
   defineStyleConfig
 } from "@chakra-ui/react";
 import { CustomConnectButton } from "./CustomeConnectButton";
-import WalletButton from './walletButton';
 import { Options } from '@da-tokenization/components';
 
 const Button1 = defineStyleConfig({
@@ -75,7 +67,7 @@ const Button1 = defineStyleConfig({
 const theme = extendTheme({
   components: {
     Modal: {
-      baseStyle: (props) => ({
+      baseStyle: () => ({
         dialog: {
           maxWidth: ["50%", "50%", "50%"],
           minWidth: "45%",
@@ -96,7 +88,6 @@ export const AppLayout = ({ children }: AppLayoutProps) => {
   const [isLogin, setLogin] = useState<boolean>(false);
   const [ipfsCid, setIpfsCid] = useState<string>('');
   const [ipfsPath, setIpfsPath] = useState<string>('');
-  const [publicClient, setPublicClient] = useState<PublicClient>();
   const [connectedAddress, setConnectedAddress] = useState<string>();
   const [addressIsConnected, setAddressIsConnected] = useState(false);
   const [showConnectionInfo, setShowConnectionInfo] = useState(false);
@@ -107,37 +98,6 @@ export const AppLayout = ({ children }: AppLayoutProps) => {
     localStorage.getItem('user') != `${localStorage.getItem('user')}`
       ? true
       : false;
-
-
-  useEffect(() => {
-    // A Public Client is an interface to "public" JSON-RPC API methods
-    // for sending transactions, reading from smart contracts
-    const newPublicClient: PublicClient = createPublicClient({
-      chain: polygonMumbai,
-      transport: http(),
-    });
-    setPublicClient(newPublicClient);
-
-    // interval check whether user has connected or disconnected wallet
-    const interval = setInterval(() => {
-      const { address, isConnected } = getAccount();
-      setConnectedAddress(address);
-      setAddressIsConnected(isConnected);
-    }, 1000);
-
-    return () => clearInterval(interval);
-  }, []);
-
-  useEffect(() => {
-    if (publicClient) {
-      const checkCurrentBlockNumber = async () => {
-        const blockNumber = await publicClient.getBlockNumber();
-        setCurrentBlockNumber(blockNumber);
-      };
-
-      //checkCurrentBlockNumber();
-    }
-  }, [publicClient]);
 
   useEffect(() => {
     if (localStorage.getItem('user')) {
@@ -183,7 +143,7 @@ export const AppLayout = ({ children }: AppLayoutProps) => {
                 <Box>
                   {showConnectionInfo && (
                   <Box>
-                    <WalletButton />
+
                   </Box>
                   )}
                 </Box>

@@ -12,29 +12,6 @@ import { NextPage } from 'next';
 import router from 'next/router';
 import { ModalProvider } from '@da-tokenization/providers';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { configureChains, createConfig, WagmiConfig } from "wagmi";
-import { alchemyProvider } from "wagmi/providers/alchemy";
-import { publicProvider } from "wagmi/providers/public";
-import { polygonMumbai } from "wagmi/chains";
-import { getDefaultWallets, RainbowKitProvider, midnightTheme } from "@rainbow-me/rainbowkit";
-import { ConnectButton } from '@rainbow-me/rainbowkit';
-
-const { chains, publicClient } = configureChains(
-  [polygonMumbai],
-  [publicProvider()]
-);
-
-const { connectors } = getDefaultWallets({
-  appName: "My Polygon ID VC Gated dapp",
-  projectId: process.env.NX_WALLET_CONNECT_ID,
-  chains,
-});
-
-const wagmiConfig = createConfig({
-  autoConnect: true,
-  connectors,
-  publicClient,
-});
 
 // eslint-disable-next-line @typescript-eslint/ban-types
 export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
@@ -56,8 +33,6 @@ function CustomApp({
   }
 
   return (
-    <WagmiConfig config={wagmiConfig}>
-    <RainbowKitProvider chains={chains} theme={midnightTheme()}>
     <ApolloProvider client={client}>
       <ModalProvider>
         <Head>
@@ -91,8 +66,6 @@ function CustomApp({
         </AppLayout>
       </ModalProvider>
     </ApolloProvider>
-    </RainbowKitProvider>
-    </WagmiConfig>
   );
 }
 
