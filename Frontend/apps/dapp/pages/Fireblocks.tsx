@@ -87,6 +87,7 @@ function Fireblocks({keyData}) {
   const onCreateVault = async () => {
     console.log("create vault")
     const srcRpc = `http://${BASE_URL}:9090/api/createVault`;
+    console.log("srcRpc",srcRpc)
     const requestOptions = {
       method: 'POST',
       headers: { 'Content-Type': 'application/json'},

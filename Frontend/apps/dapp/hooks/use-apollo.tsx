@@ -102,7 +102,7 @@ function createApolloClient(cache?: ApolloCache<NormalizedCacheObject>) {
       }),
       splitLink,
     ]),
-    cache: cache ?? createCache(),
+    cache: cache || createCache(),
   });
 }
 
