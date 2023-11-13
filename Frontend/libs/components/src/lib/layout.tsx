@@ -22,7 +22,6 @@ import {
   extendTheme,
   defineStyleConfig
 } from "@chakra-ui/react";
-import { CustomConnectButton } from "./CustomeConnectButton";
 import { Options } from '@da-tokenization/components';
 
 const Button1 = defineStyleConfig({
