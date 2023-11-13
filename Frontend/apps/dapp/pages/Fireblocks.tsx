@@ -16,7 +16,7 @@ import {
   Text
 } from "@chakra-ui/react";
 import { ExternalLinkIcon } from "@chakra-ui/icons";
-import { FireblocksSDK }  from "fireblocks-sdk";
+//import { FireblocksSDK }  from "fireblocks-sdk";
 
 const linkFireblocksSandbox =
   "https://developers.fireblocks.com/docs/sandbox-quickstart";
@@ -71,7 +71,7 @@ function Fireblocks({keyData}) {
       console.log("vault connected")
       setVaultId(vaultAccounts.accounts[0]); */
       
-      const srcRpc = `http://${BASE_URL}:9090/api/getVault`;
+      const srcRpc = `${BASE_URL}/api/getVault`;
       const requestOptions = {
         method: 'GET',
       };
@@ -86,7 +86,7 @@ function Fireblocks({keyData}) {
 
   const onCreateVault = async () => {
     console.log("create vault")
-    const srcRpc = `http://${BASE_URL}:9090/api/createVault`;
+    const srcRpc = `${BASE_URL}/api/createVault`;
     console.log("srcRpc",srcRpc)
     const requestOptions = {
       method: 'POST',
@@ -102,7 +102,7 @@ function Fireblocks({keyData}) {
     console.log("mint Nft")
     setIsHandlingMinting(true);
     setisNftAddress(false);
-    const srcRpc = `http://${BASE_URL}:9090/api/mintNft`;
+    const srcRpc = `${BASE_URL}/api/mintNft`;
     const requestOptions = {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
