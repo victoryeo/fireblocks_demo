@@ -21,6 +21,8 @@ import { FireblocksSDK }  from "fireblocks-sdk";
 const linkFireblocksSandbox =
   "https://developers.fireblocks.com/docs/sandbox-quickstart";
 
+const BASE_URL = "https://localhost:9090";
+
 const theme = extendTheme({
   components: {
     Modal: {
@@ -69,7 +71,7 @@ function Fireblocks({keyData}) {
       console.log("vault connected")
       setVaultId(vaultAccounts.accounts[0]); */
       
-      const srcRpc = "http://localhost:9090/api/getVault";
+      const srcRpc = `http://${BASE_URL}:9090/api/getVault`;
       const requestOptions = {
         method: 'GET',
       };
@@ -84,7 +86,7 @@ function Fireblocks({keyData}) {
 
   const onCreateVault = async () => {
     console.log("create vault")
-    const srcRpc = "http://localhost:9090/api/createVault";
+    const srcRpc = `http://${BASE_URL}:9090/api/createVault`;
     const requestOptions = {
       method: 'POST',
       headers: { 'Content-Type': 'application/json'},
@@ -99,7 +101,7 @@ function Fireblocks({keyData}) {
     console.log("mint Nft")
     setIsHandlingMinting(true);
     setisNftAddress(false);
-    const srcRpc = "http://localhost:9090/api/mintNft";
+    const srcRpc = `http://${BASE_URL}:9090/api/mintNft`;
     const requestOptions = {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
