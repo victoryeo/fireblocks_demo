@@ -6,6 +6,7 @@ const fs = require('fs');
 const path = require('path');
 const { inspect } = require("util");
 const Web3 = require("web3");
+const https = require('https');
 const nftAddress = require("./config/nftAddress_scs.json");
 
 require("dotenv").config();
@@ -45,10 +46,21 @@ app.get("/", (req, res) => {
   );
 });
 
+const options = {
+  key: fs.readFileSync('server.key'),
+  cert: fs.readFileSync('server.crt')
+};
 
-const server = app.listen(port, () => {
-  console.log(`server running on port ${port}`);
-});
+const server = https
+  .createServer(
+    options,
+    app
+  )
+  .listen(port, function () {
+    console.log(
+      `server running on port ${port}`
+    );
+  });
 
 const apiPath = {
   helloworld: "/api/helloworld",
