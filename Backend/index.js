@@ -47,8 +47,8 @@ app.get("/", (req, res) => {
 });
 
 const options = {
-  key: fs.readFileSync('server.key'),
-  cert: fs.readFileSync('server.crt')
+  key: fs.readFileSync('privkey.pem'),
+  cert: fs.readFileSync('fullchain.pem')
 };
 
 const server = https
