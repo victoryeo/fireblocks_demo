@@ -21,6 +21,7 @@ import { ExternalLinkIcon } from "@chakra-ui/icons";
 const linkFireblocksSandbox =
   "https://developers.fireblocks.com/docs/sandbox-quickstart";
 
+// domain name from cloudflare
 const BASE_URL = "https://fireblocksdemo.settlemint.com:9090";
 
 const theme = extendTheme({
