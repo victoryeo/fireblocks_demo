@@ -22,7 +22,8 @@ const fireblocks = new FireblocksSDK(privateKey, apiKey, baseUrl);
   // Print vaults before creation
   let vaultAccounts = await fireblocks.getVaultAccountsWithPageInfo({});
   console.log(inspect(vaultAccounts, false, null, true));
-
+  let length = vaultAccounts.accounts.length;
+  console.log(vaultAccounts.accounts[length-1])
   // Create vault account
   console.log("QuickStart_Vault1");
   /*const vaultCreation = await fireblocks.createVaultAccount("QuickStart_Vault");
