@@ -7,7 +7,7 @@ const path = require('path');
 const { inspect } = require("util");
 const Web3 = require("web3");
 const https = require('https');
-const nftAddress = require("./config/nftAddress_scs.json");
+const nftAddress = require("./config/nftAddress.json");
 
 require("dotenv").config();
 
@@ -31,7 +31,7 @@ const eip1193Provider = new FireblocksWeb3Provider({
   chainId: ChainId.GOERLI,
 })
 
-const ABI = require("./config/nftAbi_scs.json");
+const ABI = require("./config/nftAbi.json");
 
 app.use(
   cors({

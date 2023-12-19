@@ -9,6 +9,11 @@ contract SpaceBunnies is ERC721, ERC721URIStorage, Ownable {
     uint256 private _tokenIdCounter;
     string private _baseTokenURI;
 
+    event Mint (
+        address to,
+        uint256 tokenId
+    );
+
     constructor(string memory name, string memory symbol, address initialOwner) Ownable(initialOwner) ERC721(name, symbol) {
         //_baseTokenURI = "ipfs://spacebunnies.io/api/token/";
         _baseTokenURI = "https://ipfs.io/ipfs/QmPVPG1rKufG9xBNTaFX2ga4VXas953b6dQLdBkWAhs3Hh";
@@ -19,6 +24,7 @@ contract SpaceBunnies is ERC721, ERC721URIStorage, Ownable {
         _safeMint(to, tokenId);
         _setTokenURI(tokenId, _baseTokenURI);
         _tokenIdCounter += 1;
+        emit Mint(to, tokenId);
     }
 
     // The following functions are overrides required by Solidity.
