@@ -116,7 +116,9 @@ app.post(apiPath.mintNFT, async (req, res) => {
   
   const txReceipt = await web3.eth.getTransactionReceipt(txHash.transactionHash);
   console.log(txReceipt)
-  console.log(txReceipt.logs[0].topics[3])
+  console.log(txReceipt.logs[0].topics)
+  console.log(txReceipt.logs[2].topics)
+  console.log(txReceipt.logs[2].topics)
   
   const nftInx = Number(txReceipt.logs[0].topics[3]);
   console.log("A new NFT index ", nftInx, "has been minted")
