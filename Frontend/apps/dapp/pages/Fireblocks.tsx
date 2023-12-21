@@ -107,9 +107,13 @@ function Fireblocks({keyData}) {
     const requestOptions = {
       method: 'POST',
       headers: { 
+        'Access-Control-Allow-Headers': '*', 
         'Content-Type': 'application/json',
         'x-auth-token': 'bpaas- 7353246bD124493Bc9911bF7F3262D1C09Ced47b'
       },
+      body: JSON.stringify({ 
+        "recipient": "0x0eE1D9e491609c75178feB7c85eDF97b4bB36069" 
+      }),
     };
     let receipt = await fetch(`${srcRpc}`, requestOptions);
     let jsonData = await receipt.json();
