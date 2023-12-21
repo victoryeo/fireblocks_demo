@@ -22,8 +22,8 @@ const linkFireblocksSandbox =
   "https://developers.fireblocks.com/docs/sandbox-quickstart";
 
 // domain name from cloudflare
-const BASE_URL = "https://fireblocksdemo.settlemint.com:9090";
-
+const FIREBASE_URL = "https://fireblocksdemo.settlemint.com:9090";
+const SETTLEMINT_INTSTUDIO_URL = "https://is-010a.gke-singapore.settlemint.com";
 const theme = extendTheme({
   components: {
     Modal: {
@@ -72,7 +72,7 @@ function Fireblocks({keyData}) {
       console.log("vault connected")
       setVaultId(vaultAccounts.accounts[0]); */
       
-      const srcRpc = `${BASE_URL}/api/getVault`;
+      const srcRpc = `${FIREBASE_URL}/api/getVault`;
       const requestOptions = {
         method: 'GET',
       };
@@ -87,7 +87,7 @@ function Fireblocks({keyData}) {
 
   const onCreateVault = async () => {
     console.log("create vault")
-    const srcRpc = `${BASE_URL}/api/createVault`;
+    const srcRpc = `${FIREBASE_URL}/api/createVault`;
     console.log("srcRpc",srcRpc)
     const requestOptions = {
       method: 'POST',
@@ -103,10 +103,13 @@ function Fireblocks({keyData}) {
     console.log("mint Nft")
     setIsHandlingMinting(true);
     setisNftAddress(false);
-    const srcRpc = `${BASE_URL}/api/mintNft`;
+    const srcRpc = `${SETTLEMINT_INTSTUDIO_URL}/api/mintNft`;
     const requestOptions = {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: { 
+        'Content-Type': 'application/json',
+        'x-auth-token': 'bpaas- 7353246bD124493Bc9911bF7F3262D1C09Ced47b'
+      },
     };
     let receipt = await fetch(`${srcRpc}`, requestOptions);
     let jsonData = await receipt.json();
