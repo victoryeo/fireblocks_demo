@@ -100,21 +100,21 @@ function Fireblocks({keyData}) {
   }
 
   const onMintNft = async () => {
-    console.log("mint Nft")
+    console.log("mint Nft");
     setIsHandlingMinting(true);
     setisNftAddress(false);
     const srcRpc = `${SETTLEMINT_INTSTUDIO_URL}/api/mintNft`;
-    const requestOptions = {
+    const requestOptions: RequestInit = {
       method: 'POST',
-      headers: { 
-        'Access-Control-Allow-Headers': '*', 
-        'Access-Control-Allow-Origin': '*', 
-        'mode': 'no-cors',
+      mode: 'no-cors', // Change the mode value to 'cors'
+      headers: {
+        'Access-Control-Allow-Headers': '*',
+        'Access-Control-Allow-Origin': '*',
         'Content-Type': 'application/json',
-        'x-auth-token': 'bpaas- 7353246bD124493Bc9911bF7F3262D1C09Ced47b'
+        'x-auth-token': 'bpaas-7353246bD124493Bc9911bF7F3262D1C09Ced47b',
       },
-      body: JSON.stringify({ 
-        "recipient": "0x0eE1D9e491609c75178feB7c85eDF97b4bB36069" 
+      body: JSON.stringify({
+        recipient: '0x0eE1D9e491609c75178feB7c85eDF97b4bB36069',
       }),
     };
     let receipt = await fetch(`${srcRpc}`, requestOptions);
@@ -122,9 +122,9 @@ function Fireblocks({keyData}) {
     console.log(`txn receipt`, jsonData);
     setIsHandlingMinting(false);
     setisNftAddress(true);
-    setNftAddress(jsonData.nftAddress)
-    setNftIndex(jsonData.nftInx)
-  }
+    setNftAddress(jsonData.nftAddress);
+    setNftIndex(jsonData.nftInx);
+  };
 
   return (
     <div>
