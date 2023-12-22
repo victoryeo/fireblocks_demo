@@ -189,7 +189,7 @@ function Fireblocks({keyData}) {
                       <Text fontSize='lg'>
                         NFT is minted at contract address <i>{nftAddress}</i>
                         <br/>
-                        NFT token ID minted is <i>{nftIndex}</i>
+                        
                       </Text>
                   )}
                   </Center>
