@@ -103,10 +103,10 @@ function Fireblocks({keyData}) {
     console.log("mint Nft");
     setIsHandlingMinting(true);
     setisNftAddress(false);
-    const srcRpc = `${SETTLEMINT_INTSTUDIO_URL}/api/mintNft`;
+    const srcRpc = `${SETTLEMINT_INTSTUDIO_URL}/mintNft`;
     const requestOptions: RequestInit = {
       method: 'POST',
-      mode: 'no-cors', // Change the mode value to 'cors'
+      mode: 'cors', // Change the mode value to 'cors'
       headers: {
         'Access-Control-Allow-Headers': '*',
         'Access-Control-Allow-Origin': '*',
@@ -117,13 +117,17 @@ function Fireblocks({keyData}) {
         recipient: '0x0eE1D9e491609c75178feB7c85eDF97b4bB36069',
       }),
     };
-    let receipt = await fetch(`${srcRpc}`, requestOptions);
-    let jsonData = await receipt.json();
-    console.log(`txn receipt`, jsonData);
-    setIsHandlingMinting(false);
-    setisNftAddress(true);
-    setNftAddress(jsonData.nftAddress);
-    setNftIndex(jsonData.nftInx);
+    try {
+      let receipt: Response = await fetch(`${srcRpc}`, requestOptions);
+      let jsonData = await receipt.json();
+      console.log('txn receipt', jsonData);
+      setIsHandlingMinting(false);
+      setisNftAddress(true);
+      setNftAddress(jsonData.nftAddress);
+      setNftIndex(jsonData.nftInx);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
