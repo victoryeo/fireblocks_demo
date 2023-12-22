@@ -107,8 +107,8 @@ function Fireblocks({keyData}) {
     const requestOptions = {
       method: 'POST',
       headers: { 
-        'Access-Control-Allow-Headers': 'settlemint.com', 
-        'Access-Control-Allow-Origin': 'settlemint.com', 
+        'Access-Control-Allow-Headers': '*', 
+        'Access-Control-Allow-Origin': '*', 
         'mode': 'no-cors',
         'Content-Type': 'application/json',
         'x-auth-token': 'bpaas- 7353246bD124493Bc9911bF7F3262D1C09Ced47b'
