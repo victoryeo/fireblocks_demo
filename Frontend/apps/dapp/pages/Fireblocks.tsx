@@ -103,6 +103,7 @@ function Fireblocks({keyData}) {
     console.log("mint Nft");
     setIsHandlingMinting(true);
     setisNftAddress(false);
+    console.log(process.env.NX_SM_API_KEY)
     const srcRpc = `${SETTLEMINT_INTSTUDIO_URL}/mintNft`;
     const requestOptions: RequestInit = {
       method: 'POST',
@@ -111,9 +112,10 @@ function Fireblocks({keyData}) {
         'Access-Control-Allow-Headers': '*',
         'Access-Control-Allow-Origin': '*',
         'Content-Type': 'application/json',
-        'x-auth-token': 'bpaas-7353246bD124493Bc9911bF7F3262D1C09Ced47b',
+        'x-auth-token': process.env.NX_SM_API_KEY,
       },
       body: JSON.stringify({
+        // the below address is from fireblocks sandbox
         recipient: '0x0eE1D9e491609c75178feB7c85eDF97b4bB36069',
       }),
     };
